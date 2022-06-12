@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import useNotWordle from "../hooks/useNotWordle";
 
-function NotWordle() {
-  var solution = "apple";
+interface NotWordleProps {
+  solution: string;
+}
+
+function NotWordle({ solution }: NotWordleProps) {
   const { currentGuess, handleKeyup } = useNotWordle(solution);
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { GuessType } from "../interfaces";
+import { GuessType } from "../../interfaces";
+import helpFormatGuess from "./helpFormatGuess";
 
 const useNotWordle = (solution: string) => {
   const [turn, setTurn] = useState(0);
@@ -11,21 +12,8 @@ const useNotWordle = (solution: string) => {
 
   // format guess into array of letter objects
   const formatGuess = () => {
-    let solutionArray = [...solution];
-    let formatedGuess: GuessType = {
-      letters: [...currentGuess].map((key) => {
-        return { key: key, color: "grey" };
-      }),
-    };
-
-    // finding out if the letter is green or yellow
-    formatedGuess.letters.forEach((letter, index) => {
-      if (solutionArray[index] === letter.key) {
-        letter.color = "green";
-      } else if (solutionArray.includes(letter.key)) {
-        letter.color = "yellow";
-      }
-    });
+    let formatedGuess = helpFormatGuess(currentGuess, solution);
+    return formatedGuess;
   };
 
   // adds guess to the guesses state
@@ -41,39 +29,18 @@ const useNotWordle = (solution: string) => {
       }
     } else if (event.key === "Enter") {
       // only add guess if turn less than 6
-      if (turn >= 6) {
-        toast.info("no guess left", {
-          position: "top-center",
-          autoClose: 2500,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-        });
+      if (turn > 5) {
+        toast.info("no guess left");
         return;
       }
       // only add guess if 5 char long
       if (currentGuess.length !== 5) {
-        toast.warn("word must be 5 characters long!", {
-          position: "top-center",
-          autoClose: 2500,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-        });
+        toast.warn("word must be 5 characters long!");
         return;
       }
       // no duplicate words
       if (history.includes(currentGuess)) {
-        toast.info("word already used", {
-          position: "top-center",
-          autoClose: 2500,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-        });
+        toast.info("word already used");
         return;
       }
 
@@ -82,8 +49,6 @@ const useNotWordle = (solution: string) => {
       // remove last character from current guess
       setCurrentGuess((prev) => prev.slice(0, prev.length - 1));
     }
-
-    return;
   };
 
   return { turn, currentGuess, guesses, isCorrect, handleKeyup };

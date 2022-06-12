@@ -19,11 +19,19 @@ function App() {
 
   return (
     <div className="App">
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        hideProgressBar={true}
+        closeOnClick={true}
+        pauseOnHover={false}
+        draggable={false}
+        pauseOnFocusLoss={false}
+      />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>solution: {solution}</p>
-        <NotWordle />
+        <NotWordle solution={solution} />
       </header>
     </div>
   );

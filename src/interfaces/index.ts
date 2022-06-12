@@ -3,9 +3,8 @@ interface LetterType {
   color: "grey" | "yellow" | "green";
 }
 
-interface HistoryType {
+interface GuessType {
   letters: LetterType[];
-  key: string;
 }
 
-export type { LetterType };
+export type { GuessType };

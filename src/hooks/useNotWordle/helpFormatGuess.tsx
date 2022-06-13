@@ -2,14 +2,14 @@ import { GuessType } from "../../interfaces";
 
 function helpFormatGuess(guess: string, solution: string) {
   let solutionArray = [...solution];
-  let formatedGuess: GuessType = {
+  let formattedGuess: GuessType = {
     letters: [...guess].map((key) => {
       return { key: key, color: "grey" };
     }),
   };
 
   // finding green letters
-  formatedGuess.letters.forEach((letter, index) => {
+  formattedGuess.letters.forEach((letter, index) => {
     if (solutionArray[index] === letter.key) {
       letter.color = "green";
       /* changed to "" so it doesn't match another character
@@ -20,8 +20,8 @@ function helpFormatGuess(guess: string, solution: string) {
     }
   });
   // finding yellow letters
-  formatedGuess.letters.forEach((letter) => {
-    if (letter.color != "green" && solutionArray.includes(letter.key)) {
+  formattedGuess.letters.forEach((letter) => {
+    if (letter.color !== "green" && solutionArray.includes(letter.key)) {
       letter.color = "yellow";
       /*
        * changed to "" so it doesn't match another character
@@ -32,7 +32,7 @@ function helpFormatGuess(guess: string, solution: string) {
     }
   });
 
-  return formatedGuess;
+  return formattedGuess;
 }
 
 export default helpFormatGuess;

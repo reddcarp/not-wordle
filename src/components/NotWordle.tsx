@@ -6,7 +6,8 @@ interface NotWordleProps {
 }
 
 function NotWordle({ solution }: NotWordleProps) {
-  const { currentGuess, handleKeyup } = useNotWordle(solution);
+  const { currentGuess, handleKeyup, turn, isCorrect, guesses } =
+    useNotWordle(solution);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyup);
@@ -18,6 +19,8 @@ function NotWordle({ solution }: NotWordleProps) {
   return (
     <div>
       <div>Guess - {currentGuess}</div>
+      <div>Turn - {turn}</div>
+      <div>isCorrect - {isCorrect ? "true" : "false"}</div>
     </div>
   );
 }

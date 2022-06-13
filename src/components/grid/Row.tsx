@@ -11,7 +11,7 @@ interface RowProps {
 function Row({ guess, currentGuess }: RowProps) {
   if (guess) {
     return (
-      <div className="Row">
+      <div className="Row previous-guess">
         {guess.letters.map((letter, index) => {
           return (
             <Square key={index} letterKey={letter.key} state={letter.state} />

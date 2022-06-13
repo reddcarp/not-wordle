@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import logo from "./assets/logo.svg";
 import NotWordle from "./components/NotWordle";
 import "./styles/App.css";
 import { default as db } from "./data/db.json";
@@ -28,11 +27,8 @@ function App() {
         draggable={false}
         pauseOnFocusLoss={false}
       />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>solution: {solution}</p>
-        <NotWordle solution={solution} />
-      </header>
+      <p>solution: {solution}</p>
+      <NotWordle solution={solution} />
     </div>
   );
 }

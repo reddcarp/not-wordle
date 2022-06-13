@@ -1,10 +1,12 @@
 interface LetterType {
   key: string;
-  color: "grey" | "yellow" | "green";
+  state: StateType;
 }
+
+type StateType = "present" | "absent" | "correct" | "empty";
 
 interface GuessType {
   letters: LetterType[];
 }
 
-export type { GuessType };
+export type { GuessType, LetterType, StateType };

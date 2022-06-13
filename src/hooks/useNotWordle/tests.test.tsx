@@ -2,85 +2,85 @@ import { GuessType } from "../../interfaces";
 import helpFormatGuess from "./helpFormatGuess";
 
 describe("helpFormatGuess", () => {
-  it("should not take into account a green matched letter twice", () => {
+  it("should not take into account a correct matched letter twice", () => {
     const res = helpFormatGuess("apart", "apple");
     const expected: GuessType = {
       letters: [
-        { key: "a", color: "green" },
-        { key: "p", color: "green" },
-        { key: "a", color: "grey" },
-        { key: "r", color: "grey" },
-        { key: "t", color: "grey" },
+        { key: "a", state: "correct" },
+        { key: "p", state: "correct" },
+        { key: "a", state: "absent" },
+        { key: "r", state: "absent" },
+        { key: "t", state: "absent" },
       ],
     };
     expect(res).toEqual(expected);
   });
 
-  it("should not take into account a yellow matched letter twice", () => {
+  it("should not take into account a present matched letter twice", () => {
     const res = helpFormatGuess("apple", "plane");
     const expected: GuessType = {
       letters: [
-        { key: "a", color: "yellow" },
-        { key: "p", color: "yellow" },
-        { key: "p", color: "grey" },
-        { key: "l", color: "yellow" },
-        { key: "e", color: "green" },
+        { key: "a", state: "present" },
+        { key: "p", state: "present" },
+        { key: "p", state: "absent" },
+        { key: "l", state: "present" },
+        { key: "e", state: "correct" },
       ],
     };
     expect(res).toEqual(expected);
   });
 
-  it("should prioritize green letters over grey and yellow ones", () => {
+  it("should prioritize correct letters over absent and present ones", () => {
     const res = helpFormatGuess("funny", "plane");
     const expected: GuessType = {
       letters: [
-        { key: "f", color: "grey" },
-        { key: "u", color: "grey" },
-        { key: "n", color: "grey" },
-        { key: "n", color: "green" },
-        { key: "y", color: "grey" },
+        { key: "f", state: "absent" },
+        { key: "u", state: "absent" },
+        { key: "n", state: "absent" },
+        { key: "n", state: "correct" },
+        { key: "y", state: "absent" },
       ],
     };
     expect(res).toEqual(expected);
   });
 
-  it("all letters green", () => {
+  it("all letters correct", () => {
     const res = helpFormatGuess("apple", "apple");
     const expected: GuessType = {
       letters: [
-        { key: "a", color: "green" },
-        { key: "p", color: "green" },
-        { key: "p", color: "green" },
-        { key: "l", color: "green" },
-        { key: "e", color: "green" },
+        { key: "a", state: "correct" },
+        { key: "p", state: "correct" },
+        { key: "p", state: "correct" },
+        { key: "l", state: "correct" },
+        { key: "e", state: "correct" },
       ],
     };
     expect(res).toEqual(expected);
   });
 
-  it("all letters grey", () => {
+  it("all letters absent", () => {
     const res = helpFormatGuess("proud", "theta");
     const expected: GuessType = {
       letters: [
-        { key: "p", color: "grey" },
-        { key: "r", color: "grey" },
-        { key: "o", color: "grey" },
-        { key: "u", color: "grey" },
-        { key: "d", color: "grey" },
+        { key: "p", state: "absent" },
+        { key: "r", state: "absent" },
+        { key: "o", state: "absent" },
+        { key: "u", state: "absent" },
+        { key: "d", state: "absent" },
       ],
     };
     expect(res).toEqual(expected);
   });
 
-  it("all letters yellow", () => {
+  it("all letters present", () => {
     const res = helpFormatGuess("plane", "nepal");
     const expected: GuessType = {
       letters: [
-        { key: "p", color: "yellow" },
-        { key: "l", color: "yellow" },
-        { key: "a", color: "yellow" },
-        { key: "n", color: "yellow" },
-        { key: "e", color: "yellow" },
+        { key: "p", state: "present" },
+        { key: "l", state: "present" },
+        { key: "a", state: "present" },
+        { key: "n", state: "present" },
+        { key: "e", state: "present" },
       ],
     };
     expect(res).toEqual(expected);

@@ -4,29 +4,29 @@ function helpFormatGuess(guess: string, solution: string) {
   let solutionArray = [...solution];
   let formattedGuess: GuessType = {
     letters: [...guess].map((key) => {
-      return { key: key, color: "grey" };
+      return { key: key, state: "absent" };
     }),
   };
 
-  // finding green letters
+  // finding correct letters
   formattedGuess.letters.forEach((letter, index) => {
     if (solutionArray[index] === letter.key) {
-      letter.color = "green";
+      letter.state = "correct";
       /* changed to "" so it doesn't match another character
        * exemple, guess = "apart" with solution = "apple"
-       * we only want the first 'a' to be green and the second one grey
+       * we only want the first 'a' to be correct and the second one absent
        */
       solutionArray[index] = "";
     }
   });
-  // finding yellow letters
+  // finding present letters
   formattedGuess.letters.forEach((letter) => {
-    if (letter.color !== "green" && solutionArray.includes(letter.key)) {
-      letter.color = "yellow";
+    if (letter.state !== "correct" && solutionArray.includes(letter.key)) {
+      letter.state = "present";
       /*
        * changed to "" so it doesn't match another character
        * exemple, guess = "apple" with solution = "plane"
-       * we only want the first 'p' to be yellow, the second one should be grey
+       * we only want the first 'p' to be present, the second one should be absent
        */
       solutionArray[solutionArray.indexOf(letter.key)] = "";
     }

@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useNotWordle from "../hooks/useNotWordle";
+import Grid from "./grid/Grid";
 
 interface NotWordleProps {
   solution: string;
@@ -17,10 +18,20 @@ function NotWordle({ solution }: NotWordleProps) {
   }, [handleKeyup]);
 
   return (
-    <div>
-      <div>Guess - {currentGuess}</div>
-      <div>Turn - {turn}</div>
-      <div>isCorrect - {isCorrect ? "true" : "false"}</div>
+    <div id="game" style={{}}>
+      <div
+        id="board-container"
+        style={{
+          flexDirection: "column",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div>Guess - {currentGuess}</div>
+        <div>Turn - {turn}</div>
+        <div>isCorrect - {isCorrect ? "true" : "false"}</div>
+        <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
+      </div>
     </div>
   );
 }

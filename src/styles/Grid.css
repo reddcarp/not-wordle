@@ -1,16 +1,45 @@
 .Square {
   color: white;
+  font-weight: bold;
   border: 2px solid #3a3a3c;
-  font-size: 2rem;
+  font-size: calc(10px + 2vmin);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   text-transform: uppercase;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.Square-filled {
-  border-color: #565758;
+#square-absent {
+  border-color: #3a3a3c;
+  background-color: #3a3a3c;
+}
+#square-present {
+  border-color: #b59f3b;
+  background-color: #b59f3b;
+}
+#square-correct {
+  border-color: #538d4e;
+  background-color: #538d4e;
+}
+#square-empty {
+  border-color: #3a3a3c;
+  background-color: transparent;
+}
+
+.Row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.Grid {
+  max-width: 350px;
+  max-height: 420px;
+  width: 60vmin;
+  height: 60vmin;
+  display: grid;
+  gap: 5px;
 }

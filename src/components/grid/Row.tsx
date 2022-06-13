@@ -4,10 +4,11 @@ import "../../styles/Grid.css";
 import Square from "./Square";
 
 interface RowProps {
-  guess: GuessType;
+  guess?: GuessType;
+  currentGuess?: string;
 }
 
-function Row({ guess }: RowProps) {
+function Row({ guess, currentGuess }: RowProps) {
   if (guess) {
     return (
       <div className="Row">
@@ -16,6 +17,21 @@ function Row({ guess }: RowProps) {
             <Square key={index} letterKey={letter.key} state={letter.state} />
           );
         })}
+      </div>
+    );
+  }
+
+  if (currentGuess) {
+    const charArray = [...currentGuess];
+
+    return (
+      <div className="Row">
+        {charArray.map((char, index) => (
+          <Square key={index} letterKey={char} />
+        ))}
+        {[...Array(5 - charArray.length)].map((_, index) => (
+          <Square key={index} />
+        ))}
       </div>
     );
   }

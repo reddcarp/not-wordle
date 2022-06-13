@@ -12,9 +12,12 @@ interface GridProps {
 function Grid({ currentGuess, guesses, turn }: GridProps) {
   return (
     <div className="Grid">
-      {guesses.map((guess, index) => (
-        <Row key={index} guess={guess} />
-      ))}
+      {guesses.map((guess, index) => {
+        if (index === turn) {
+          return <Row key={index} currentGuess={currentGuess} />;
+        }
+        return <Row key={index} guess={guess} />;
+      })}
     </div>
   );
 }

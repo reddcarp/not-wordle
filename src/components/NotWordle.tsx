@@ -27,9 +27,7 @@ function NotWordle({ solution }: NotWordleProps) {
           alignItems: "center",
         }}
       >
-        <div>Guess - {currentGuess}</div>
         <div>Turn - {turn}</div>
-        <div>isCorrect - {isCorrect ? "true" : "false"}</div>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       </div>
     </div>

@@ -1,5 +1,4 @@
-import { Component } from "react";
-import { LetterType, StateType } from "../../interfaces";
+import { StateType } from "../../interfaces";
 import "../../styles/Grid.css";
 
 interface SquareProps {
@@ -8,7 +7,11 @@ interface SquareProps {
   animationType?: "delay" | "instant";
 }
 
-function Square({ letterKey, state = "empty", animationType }: SquareProps) {
+function Square({
+  letterKey,
+  state = "empty",
+  animationType = "instant",
+}: SquareProps) {
   if (!letterKey) {
     return <div className="Square">‎</div>;
   }

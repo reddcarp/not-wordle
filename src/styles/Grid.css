@@ -2,7 +2,7 @@
   color: white;
   font-weight: bold;
   border: 2px solid #3a3a3c;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 3vmin);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +10,7 @@
   text-transform: uppercase;
   width: 100%;
   box-sizing: border-box;
+  aspect-ratio: 1;
 }
 
 #square-absent {
@@ -36,7 +37,7 @@
 #square-empty {
   border-color: #565758;
   background-color: transparent;
-  animation: pop 0.09s linear;
+  animation: pop 0.09s ease-in-out;
 }
 
 .Row {
@@ -46,16 +47,16 @@
 }
 
 .Grid {
+  max-width: 350px;
+  max-height: 420px;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   gap: 5px;
-  width: 60vmin;
-  height: 60vmin;
+  width: 55vmin;
 }
 @media screen and (max-aspect-ratio: 2/3) {
   .Grid {
     width: 90vmin;
-    height: 108vmin;
   }
 }
 
@@ -114,10 +115,10 @@
     transform: translateX(0);
   }
   25% {
-    transform: translateX(5px);
+    transform: translateX(-5px);
   }
   50% {
-    transform: translateX(-5px);
+    transform: translateX(5px);
   }
   75% {
     transform: translateX(5px);

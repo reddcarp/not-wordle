@@ -1,4 +1,3 @@
-import { Component } from "react";
 import { GuessType } from "../../interfaces";
 import "../../styles/Grid.css";
 import Row from "./Row";

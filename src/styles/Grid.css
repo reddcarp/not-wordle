@@ -13,25 +13,28 @@
 }
 
 #square-absent {
+  border-color: #565758;
   --border-color: #3a3a3c;
   --background-color: #3a3a3c;
   animation: flip 0.5s ease forwards;
   animation-delay: var(--animation-delay);
 }
 #square-present {
+  border-color: #565758;
   --border-color: #b59f3b;
   --background-color: #b59f3b;
   animation: flip 0.5s ease forwards;
   animation-delay: var(--animation-delay);
 }
 #square-correct {
+  border-color: #565758;
   --border-color: #538d4e;
   --background-color: #538d4e;
   animation: flip 0.5s ease forwards;
   animation-delay: var(--animation-delay);
 }
 #square-empty {
-  border-color: #3a3a3c;
+  border-color: #565758;
   background-color: transparent;
   animation: pop 0.09s linear;
 }
@@ -70,12 +73,10 @@
   0% {
     transform: rotateX(0);
     background-color: transparent;
-    border-color: #3a3a3c;
   }
   45% {
     transform: rotateX(90deg);
     background-color: transparent;
-    border-color: #3a3a3c;
   }
   55% {
     transform: rotateX(90deg);

@@ -45,13 +45,21 @@
   gap: 5px;
 }
 
-.Grid {
-  max-width: 350px;
-  max-height: 420px;
-  width: 60vmin;
-  height: 60vmin;
-  display: grid;
-  gap: 5px;
+@media (orientation: landscape) {
+  .Grid {
+    width: 60vmin;
+    height: 60vmin;
+    display: grid;
+    gap: 5px;
+  }
+}
+@media (orientation: portrait) {
+  .Grid {
+    width: 90vmin;
+    height: 90vmin;
+    display: grid;
+    gap: 5px;
+  }
 }
 
 /* ANIMATION DELAY */
@@ -73,10 +81,12 @@
   0% {
     transform: rotateX(0);
     background-color: transparent;
+    border-color: #565758;
   }
   45% {
     transform: rotateX(90deg);
     background-color: transparent;
+    border-color: #565758;
   }
   55% {
     transform: rotateX(90deg);
@@ -99,5 +109,23 @@
   }
   100% {
     transform: scale(0.9, 0.9);
+  }
+}
+
+@keyframes horizontal-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

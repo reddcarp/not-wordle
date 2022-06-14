@@ -45,20 +45,17 @@
   gap: 5px;
 }
 
-@media (orientation: landscape) {
-  .Grid {
-    width: 60vmin;
-    height: 60vmin;
-    display: grid;
-    gap: 5px;
-  }
+.Grid {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  width: 60vmin;
+  height: 60vmin;
 }
-@media (orientation: portrait) {
+@media screen and (max-aspect-ratio: 2/3) {
   .Grid {
     width: 90vmin;
-    height: 90vmin;
-    display: grid;
-    gap: 5px;
+    height: 108vmin;
   }
 }
 

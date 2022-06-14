@@ -27,8 +27,8 @@ function App() {
         draggable={false}
         pauseOnFocusLoss={false}
       />
-      <p>solution: {solution}</p>
-      <NotWordle solution={solution} />
+      <div className="header">Not Wordle</div>
+      {solution && <NotWordle solution={solution} />}
     </div>
   );
 }

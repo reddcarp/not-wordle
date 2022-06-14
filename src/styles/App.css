@@ -21,3 +21,27 @@
 .App-link:hover {
   color: #2d798e;
 }
+
+.header {
+  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  display: flex;
+  height: var(--header-height);
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-bottom: 1px solid #3a3a3c;
+}
+
+#game {
+  height: calc(100% - var(--header-height));
+  display: flex;
+  flex-direction: column;
+}
+
+#board-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}

@@ -53,6 +53,7 @@
   grid-template-rows: repeat(6, 1fr);
   gap: 5px;
   width: 55vmin;
+  margin: 5px;
 }
 @media screen and (max-aspect-ratio: 2/3) {
   .Grid {

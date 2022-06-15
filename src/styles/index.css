@@ -30,4 +30,8 @@ code {
     4 * var(--animation-flip-time) - 4 * var(--animation-flip-time-between) +
       var(--animation-flip-time)
   );
+  --keyboard-key-height: 58px;
+  --grid-width: calc(
+    100vh - var(--header-height) - 5 * var(--keyboard-key-height)
+  );
 }

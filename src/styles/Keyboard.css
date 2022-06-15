@@ -1,7 +1,7 @@
 .key {
   border-radius: 4px;
   font-weight: bold;
-  height: 58px;
+  height: var(--keyboard-key-height);
   background-color: var(--color-keyboard-default);
   flex: 1;
   padding: 0;

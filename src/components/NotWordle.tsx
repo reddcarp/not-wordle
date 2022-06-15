@@ -9,7 +9,7 @@ interface NotWordleProps {
 }
 
 function NotWordle({ solution }: NotWordleProps) {
-  const { currentGuess, handleKeyup, turn, isCorrect, guesses } =
+  const { currentGuess, handleKeyup, turn, isCorrect, guesses, usedKeys } =
     useNotWordle(solution);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function NotWordle({ solution }: NotWordleProps) {
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       </div>
       <div id="game-keyboard">
-        <Keyboard />
+        <Keyboard usedKeys={usedKeys} />
       </div>
     </div>
   );

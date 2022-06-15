@@ -24,6 +24,12 @@
 .key[data-state="correct"] {
   background-color: var(--color-correct);
 }
+.key[data-state="present"] {
+  background-color: var(--color-present);
+}
+.key[data-state="absent"] {
+  background-color: var(--color-absent);
+}
 
 .keyboard {
   margin: 0 8px;

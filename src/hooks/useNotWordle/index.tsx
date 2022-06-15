@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { GuessType } from "../../interfaces";
+import { GuessType, StateType, UsedKeysType } from "../../interfaces";
 import helpFormatGuess from "./helpFormatGuess";
 
 const useNotWordle = (solution: string) => {
@@ -9,6 +9,7 @@ const useNotWordle = (solution: string) => {
   const [guesses, setGuesses]: [GuessType[], any] = useState([...Array(6)]); // (array of array)
   const [history, setHistory]: [string[], any] = useState([]); //used to check that the user didn't send the same guess (array of strings)
   const [isCorrect, setIsCorrect] = useState(false);
+  const [usedKeys, setUsedKeys]: [UsedKeysType, any] = useState({});
 
   // format guess into array of letter objects
   const formatGuess = () => {
@@ -35,6 +36,26 @@ const useNotWordle = (solution: string) => {
     setIsCorrect(currentGuess === solution);
     setHistory((prev: string[]) => [...prev, currentGuess]);
     setCurrentGuess("");
+    setUsedKeys((prev: any) => {
+      let newKeys = { ...prev };
+
+      formattedGuess.letters.forEach((letter) => {
+        const currentLetterState: StateType = newKeys[letter.key];
+        if (currentLetterState === "correct") {
+          return;
+        }
+        if (currentLetterState === "present") {
+          if (letter.state === "correct") {
+            newKeys[letter.key] = letter.state;
+          }
+          return;
+        }
+        newKeys[letter.key] = letter.state;
+        return;
+      });
+
+      return newKeys;
+    });
   };
 
   // handle keydown event
@@ -72,7 +93,7 @@ const useNotWordle = (solution: string) => {
     }
   };
 
-  return { turn, currentGuess, guesses, isCorrect, handleKeyup };
+  return { turn, currentGuess, guesses, isCorrect, handleKeyup, usedKeys };
 };
 
 export default useNotWordle;

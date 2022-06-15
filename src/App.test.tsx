@@ -3,6 +3,6 @@ import App from "./App";
 
 test("renders learn react link", () => {
   render(<App />);
-  const linkElement = screen.getByText(/solution/i);
+  const linkElement = screen.getByText(/Not Wordle/i);
   expect(linkElement).toBeInTheDocument();
 });

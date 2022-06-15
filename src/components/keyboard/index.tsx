@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
 import db from "../../data/db.json";
-import { LetterType } from "../../interfaces";
+import { LetterType, UsedKeysType } from "../../interfaces";
 import KeyboardKey from "./KeyboardKey";
 
-function Keyboard() {
+interface KeyboardProps {
+  usedKeys: UsedKeysType;
+}
+
+function Keyboard({ usedKeys }: KeyboardProps) {
   const [keys, setKeys]: [LetterType[][], any] = useState([]);
 
   // initializing the first solution
@@ -12,11 +16,11 @@ function Keyboard() {
     setKeys(
       db.keyboard.rows.map((row) =>
         row.map((letter) => {
-          return { key: letter.key, state: "empty" };
+          return { key: letter.key, state: usedKeys[letter.key] };
         })
       )
     );
-  }, [setKeys]);
+  }, [setKeys, usedKeys]);
 
   return (
     <div className="keyboard">

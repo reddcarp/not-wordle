@@ -9,4 +9,8 @@ interface GuessType {
   letters: LetterType[];
 }
 
-export type { GuessType, LetterType, StateType };
+interface UsedKeysType {
+  [index: string]: StateType;
+}
+
+export type { GuessType, LetterType, StateType, UsedKeysType };

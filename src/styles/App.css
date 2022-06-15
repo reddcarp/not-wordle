@@ -37,4 +37,10 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+#game-keyboard {
+  display: flex;
+  justify-content: center;
 }

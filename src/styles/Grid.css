@@ -2,7 +2,7 @@
   color: var(--color-text);
   font-weight: bold;
   border: 2px solid var(--color-empty);
-  font-size: calc(10px + 3vmin);
+  font-size: calc(10px + 4vmin);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -52,13 +52,9 @@
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   gap: 5px;
-  width: 55vmin;
-  margin: 5px;
-}
-@media screen and (max-aspect-ratio: 2/3) {
-  .Grid {
-    width: 90vmin;
-  }
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* ANIMATION DELAY */

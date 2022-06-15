@@ -24,4 +24,10 @@ code {
   --color-text: #fff;
   --color-background: #121213;
   --color-keyboard-default: #818384;
+  --animation-flip-time: 0.5s;
+  --animation-flip-time-between: 0.1s;
+  --keyboard-update-delay: calc(
+    4 * var(--animation-flip-time) - 4 * var(--animation-flip-time-between) +
+      var(--animation-flip-time)
+  );
 }

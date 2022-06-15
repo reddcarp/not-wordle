@@ -24,12 +24,24 @@
 
 .key[data-state="correct"] {
   background-color: var(--color-correct);
+  -webkit-transition: background-color 0s;
+  -webkit-transition-delay: var(--keyboard-update-delay);
+  transition: background-color 0s;
+  transition-delay: var(--keyboard-update-delay);
 }
 .key[data-state="present"] {
   background-color: var(--color-present);
+  -webkit-transition: background-color 0s;
+  -webkit-transition-delay: var(--keyboard-update-delay);
+  transition: background-color 0s;
+  transition-delay: var(--keyboard-update-delay);
 }
 .key[data-state="absent"] {
   background-color: var(--color-absent);
+  -webkit-transition: background-color 0s;
+  -webkit-transition-delay: var(--keyboard-update-delay);
+  transition: background-color 0s;
+  transition-delay: var(--keyboard-update-delay);
 }
 
 .keyboard {

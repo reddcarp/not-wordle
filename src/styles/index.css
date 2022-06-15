@@ -32,6 +32,6 @@ code {
   );
   --keyboard-key-height: 58px;
   --grid-width: calc(
-    100vh - var(--header-height) - 5 * var(--keyboard-key-height)
+    100vh - var(--header-height) - 4.5 * var(--keyboard-key-height)
   );
 }

@@ -1,6 +1,6 @@
 import { StateType } from "../../interfaces";
-
 import "../../styles/Keyboard.css";
+import { ReactComponent as BackspaceSvg } from "../../assets/backspace.svg";
 
 interface KeyboardKeyProps {
   letterKey: string;
@@ -26,7 +26,7 @@ function KeyboardKey({ letterKey, state }: KeyboardKeyProps) {
           id="special-key"
           className="key"
         >
-          Back
+          <BackspaceSvg />
         </button>
       );
     }

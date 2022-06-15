@@ -2,7 +2,6 @@
   color: var(--color-text);
   font-weight: bold;
   border: 2px solid var(--color-empty);
-  font-size: calc(10px + 4vmin);
   display: inline-flex;
   align-items: center;
   justify-content: center;

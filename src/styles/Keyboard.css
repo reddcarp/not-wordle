@@ -1,0 +1,35 @@
+.key {
+  border-radius: 4px;
+  font-weight: bold;
+  height: 58px;
+  background-color: var(--color-keyboard-default);
+  flex: 1;
+  padding: 0;
+  border: 0;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0 6px 0 0;
+  cursor: pointer;
+}
+
+#special-key {
+  flex: 1.5;
+}
+
+#half-divider {
+  flex: 0.5;
+}
+
+.key[data-state="correct"] {
+  background-color: var(--color-correct);
+}
+
+.keyboard {
+  margin: 0 8px;
+  gap: 5px;
+}
+
+.keyboard-row {
+  display: flex;
+  margin: 0 0 8px;
+}

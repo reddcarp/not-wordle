@@ -24,6 +24,9 @@ function NotWordle({ solution }: NotWordleProps) {
       <div id="board-container">
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       </div>
+      <div id="game-keyboard">
+        <Keyboard />
+      </div>
     </div>
   );
 }

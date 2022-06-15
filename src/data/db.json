@@ -14,6 +14,7 @@
         { "key": "p" }
       ],
       [
+        { "key": "half-divider1" },
         { "key": "a" },
         { "key": "s" },
         { "key": "d" },
@@ -22,7 +23,8 @@
         { "key": "h" },
         { "key": "j" },
         { "key": "k" },
-        { "key": "l" }
+        { "key": "l" },
+        { "key": "half-divider2" }
       ],
       [
         { "key": "Enter" },
@@ -33,7 +35,7 @@
         { "key": "b" },
         { "key": "n" },
         { "key": "m" },
-        { "key": "Delete" }
+        { "key": "Backspace" }
       ]
     ]
   },

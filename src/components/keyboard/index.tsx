@@ -18,15 +18,17 @@ function Keyboard() {
     );
   }, [setKeys]);
 
-  console.log(keys);
-
   return (
     <div className="keyboard">
       {keys.map((row) => {
         return (
           <div className="keyboard-row">
             {row.map((letter) => (
-              <KeyboardKey key={letter.key} state={letter.state} />
+              <KeyboardKey
+                key={letter.key}
+                letterKey={letter.key}
+                state={letter.state}
+              />
             ))}
           </div>
         );

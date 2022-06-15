@@ -18,6 +18,18 @@ function KeyboardKey({ letterKey, state }: KeyboardKeyProps) {
     if (letterKey.includes("half-divider")) {
       return <div id="half-divider"></div>;
     }
+    if (letterKey === "Backspace") {
+      return (
+        <button
+          onClick={handleClick}
+          data-state={state}
+          id="special-key"
+          className="key"
+        >
+          Back
+        </button>
+      );
+    }
     return (
       <button
         onClick={handleClick}

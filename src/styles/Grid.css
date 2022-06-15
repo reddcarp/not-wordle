@@ -1,7 +1,7 @@
 .Square {
-  color: white;
+  color: var(--color-text);
   font-weight: bold;
-  border: 2px solid #3a3a3c;
+  border: 2px solid var(--color-empty);
   font-size: calc(10px + 3vmin);
   display: inline-flex;
   align-items: center;
@@ -14,28 +14,28 @@
 }
 
 #square-absent {
-  border-color: #565758;
-  --border-color: #3a3a3c;
-  --background-color: #3a3a3c;
+  border-color: var(--color-active);
+  --border-color: var(--color-absent);
+  --background-color: var(--color-absent);
   animation: flip 0.5s ease forwards;
   animation-delay: var(--animation-delay);
 }
 #square-present {
-  border-color: #565758;
-  --border-color: #b59f3b;
-  --background-color: #b59f3b;
+  border-color: var(--color-active);
+  --border-color: var(--color-present);
+  --background-color: var(--color-present);
   animation: flip 0.5s ease forwards;
   animation-delay: var(--animation-delay);
 }
 #square-correct {
-  border-color: #565758;
-  --border-color: #538d4e;
-  --background-color: #538d4e;
+  border-color: var(--color-active);
+  --border-color: var(--color-correct);
+  --background-color: var(--color-correct);
   animation: flip 0.5s ease forwards;
   animation-delay: var(--animation-delay);
 }
 #square-empty {
-  border-color: #565758;
+  border-color: var(--color-active);
   background-color: transparent;
   animation: pop 0.09s ease-in-out;
 }
@@ -80,12 +80,12 @@
   0% {
     transform: rotateX(0);
     background-color: transparent;
-    border-color: #565758;
+    border-color: var(--color-active);
   }
   45% {
     transform: rotateX(90deg);
     background-color: transparent;
-    border-color: #565758;
+    border-color: var(--color-active);
   }
   55% {
     transform: rotateX(90deg);

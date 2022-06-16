@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+
 import { GuessType, StateType, UsedKeysType } from "../../interfaces";
 import helpFormatGuess from "./helpFormatGuess";
+import { default as db } from "../../data/db.json";
 
 const useNotWordle = (solution: string) => {
   const [turn, setTurn] = useState(0);
@@ -69,17 +71,22 @@ const useNotWordle = (solution: string) => {
     } else if (event.key === "Enter") {
       // only add guess if turn less than 6
       if (turn > 5) {
-        toast.info("no guess left");
+        toast.info("No guess left");
         return;
       }
       // only add guess if 5 char long
       if (currentGuess.length !== 5) {
-        toast.warn("word must be 5 characters long!");
+        toast.warn("Word must be 5 characters long!");
         return;
       }
       // no duplicate words
       if (history.includes(currentGuess)) {
-        toast.info("word already used");
+        toast.info("Word already used");
+        return;
+      }
+
+      if (!db.solutions.includes(currentGuess)) {
+        toast.warn("Not in word list !");
         return;
       }
 

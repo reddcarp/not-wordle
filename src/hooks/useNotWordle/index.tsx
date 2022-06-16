@@ -85,6 +85,7 @@ const useNotWordle = (solution: string) => {
         return;
       }
 
+      // no word not in the list
       if (!db.solutions.includes(currentGuess)) {
         toast.warn("Not in word list !");
         return;

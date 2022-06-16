@@ -9,7 +9,6 @@ interface KeyboardKeyProps {
 
 function KeyboardKey({ letterKey, state }: KeyboardKeyProps) {
   function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    console.log("pressed = " + letterKey);
     window.dispatchEvent(new KeyboardEvent("keyup", { key: letterKey }));
   }
 

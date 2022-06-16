@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     // 1 not included in Math.random so Math.floor < db.solution.length
     const randomIndex = Math.floor(Math.random() * db.solutions.length);
-    setSolution(db.solutions[randomIndex].word);
+    setSolution(db.solutions[randomIndex]);
   }, [setSolution]);
 
   return (

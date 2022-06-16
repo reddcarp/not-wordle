@@ -5,15 +5,17 @@ import Square from "./Square";
 interface RowProps {
   guess?: GuessType;
   currentGuess?: string;
+  extraAnimation?: string;
 }
 
-function Row({ guess, currentGuess }: RowProps) {
+function Row({ guess, currentGuess, extraAnimation }: RowProps) {
   if (guess) {
     return (
       <div className="Row">
         {guess.letters.map((letter, index) => {
           return (
             <Square
+              extraAnimation={extraAnimation}
               animationType="delay"
               key={index}
               letterKey={letter.key}

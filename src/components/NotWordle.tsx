@@ -33,7 +33,12 @@ function NotWordle({ solution }: NotWordleProps) {
         <Modal isCorrect={isCorrect} solution={solution} turn={turn} />
       )}
       <div id="board-container">
-        <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
+        <Grid
+          isCorrect={isCorrect}
+          currentGuess={currentGuess}
+          guesses={guesses}
+          turn={turn}
+        />
       </div>
       <div id="game-keyboard">
         <Keyboard usedKeys={usedKeys} />

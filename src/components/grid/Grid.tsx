@@ -6,16 +6,23 @@ interface GridProps {
   currentGuess: string;
   guesses: GuessType[];
   turn: number;
+  isCorrect: boolean;
 }
 
-function Grid({ currentGuess, guesses, turn }: GridProps) {
+function Grid({ currentGuess, guesses, turn, isCorrect }: GridProps) {
   return (
     <div className="Grid">
       {guesses.map((guess, index) => {
         if (index === turn) {
           return <Row key={index} currentGuess={currentGuess} />;
         }
-        return <Row key={index} guess={guess} />;
+        return (
+          <Row
+            extraAnimation={isCorrect && index === turn - 1 ? "wave" : ""}
+            key={index}
+            guess={guess}
+          />
+        );
       })}
     </div>
   );

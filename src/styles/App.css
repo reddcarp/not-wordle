@@ -8,13 +8,6 @@
   color: var(--color-text);
 }
 
-.App-link {
-  color: #61dafb;
-}
-.App-link:hover {
-  color: #2d798e;
-}
-
 .header {
   font-size: calc(10px + 2vmin);
   flex-direction: row;
@@ -43,4 +36,45 @@
 #game-keyboard {
   display: flex;
   justify-content: center;
+}
+
+#modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.402);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal {
+  padding: 5vmin;
+  border-radius: 8px;
+  background-color: var(--color-background);
+  width: 80vw;
+  max-height: 466px;
+  max-width: 408px;
+  box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.5);
+}
+
+#modal-solution-text {
+  color: #6dcc2e;
+}
+
+#modal-button {
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: var(--color-keyboard-default);
+  padding: 10px;
+  border: 0;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0 6px 0 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+  user-select: none;
 }

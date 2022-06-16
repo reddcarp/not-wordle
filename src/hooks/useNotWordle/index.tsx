@@ -61,8 +61,6 @@ const useNotWordle = (solution: string) => {
   // handle keydown event
   // if Enter, add the new guess
   const handleKeyup = (event: KeyboardEvent) => {
-    if (isCorrect) return;
-
     // only alphabet characters
     if (event.key.length === 1 && /[a-zA-Z]/.test(event.key)) {
       if (currentGuess.length < 5) {
